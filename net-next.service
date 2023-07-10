@@ -1,0 +1,12 @@
+[Unit]
+Description=Fetch net-next status
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/curl -s https://git.kernel.org/pub/scm/linux/kernel/git/netdev/misc.git/plain/net-next.html -o /usr/share/nginx/html/net-next.html
+User=nginx
+Group=nginx
+
+[Install]
+WantedBy=multi-user.target
